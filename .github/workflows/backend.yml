@@ -1,12 +1,6 @@
 name: backend
 
-on:
-  push:
-    paths:
-      - 'back/**'
-  pull_request:
-    paths:
-      - 'back/**'
+on: [push, pull_request]
 
 jobs:
   test-backend:
