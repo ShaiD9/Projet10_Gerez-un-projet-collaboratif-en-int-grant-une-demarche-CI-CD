@@ -39,7 +39,7 @@ jobs:
       - name: Run Angular tests with coverage
         run: |
           cd front
-          npm run test -- --watch=false --code-coverage
+          npm run test -- --no-watch --no-progress --browsers=ChromeHeadless --code-coverage
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
