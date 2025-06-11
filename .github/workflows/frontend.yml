@@ -17,12 +17,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd frontend
+          cd front
           npm ci
 
       - name: Run tests with coverage
         run: |
-          cd frontend
+          cd front
           npm run test -- --watch=false --code-coverage
 
       - name: Upload coverage report
