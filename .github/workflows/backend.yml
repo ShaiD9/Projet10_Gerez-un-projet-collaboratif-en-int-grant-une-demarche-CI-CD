@@ -18,7 +18,7 @@ jobs:
 
       - name: Build and test with Maven
         run: |
-          cd backend
+          cd back
           ./mvnw clean test
 
       - name: Generate JaCoCo Report
