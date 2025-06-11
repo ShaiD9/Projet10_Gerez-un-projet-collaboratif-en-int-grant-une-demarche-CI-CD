@@ -19,12 +19,12 @@ jobs:
       - name: Build and test with Maven
         run: |
           cd back
-          ./mvnw clean test
+          /mvn clean test
 
       - name: Generate JaCoCo Report
         run: |
-          cd backend
-          ./mvnw jacoco:report
+          cd back
+          /mvn jacoco:report
 
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
