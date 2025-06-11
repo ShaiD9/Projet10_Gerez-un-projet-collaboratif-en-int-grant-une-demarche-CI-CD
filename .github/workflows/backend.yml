@@ -1,0 +1,39 @@
+name: Backend
+
+on:
+  push:
+    paths:
+      - 'backend/**'
+  pull_request:
+    paths:
+      - 'backend/**'
+
+jobs:
+  test-backend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
+      - name: Build and test with Maven
+        run: |
+          cd backend
+          ./mvnw clean test
+
+      - name: Generate JaCoCo Report
+        run: |
+          cd backend
+          ./mvnw jacoco:report
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: backend-coverage-report
+          path: backend/target/site/jacoco/
