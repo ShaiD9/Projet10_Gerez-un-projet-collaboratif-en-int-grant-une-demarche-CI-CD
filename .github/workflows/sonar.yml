@@ -41,7 +41,18 @@ jobs:
           cd front
           npm run test -- --no-watch --no-progress --browsers=ChromeHeadless --code-coverage
 
+      - name: Debug – Show generated lcov
+        run: |
+          ls -la front/coverage
+          head -n 10 front/coverage/lcov.info
+
+      - name: Fix lcov paths
+        run: |
+          sed -i 's|SF:.*/src|SF:src|' front/coverage/lcov.info
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          projectBaseDir: .
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
