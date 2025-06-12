@@ -43,12 +43,12 @@ jobs:
 
       - name: Debug – Show generated lcov
         run: |
-          ls -la front/coverage
-          head -n 10 front/coverage/lcov.info
+          ls -la front/coverage/bobapp
+          head -n 10 front/coverage/bobapp/lcov.info
 
       - name: Fix lcov paths
         run: |
-          sed -i 's|SF:.*/src|SF:src|' front/coverage/lcov.info
+          sed -i 's|SF:.*/src|SF:src|' front/coverage/bobapp/lcov.info
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
