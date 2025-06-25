@@ -2,8 +2,8 @@ name: Deploy Docker Images
 
 on:
   push:
-    branches:
-      - main  # ou master selon ta branche par défaut
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   build-and-push-backend:
